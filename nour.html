@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>votre CV en 2 étapes</title>
+    <style media="screen">
+      header {
+         background-image: url("imagecv.jpeg");
+         background-size: 1305px 300px;
+         background-position: center;
+         background-repeat: no-repeat;
+         height:150px;
+         font-size: 45px;
+         font-family: Comic Sans MS ;
+         color:teal;
+      }
+
+      .info{
+        margin-left: 230px;
+        margin-right: 230px;
+        background-color: #5BB6A6;
+      }
+      .imag{
+         float:left;
+         margin-right: 20px;
+         margin-left: 10px;
+      }
+      .cont{
+        margin-left: 230px;
+        margin-right: 230px;
+        background-color: #5BB6A6;
+      }
+
+    </style>
+    <script language="JavaScript" type="text/javascript">
+function validation(){
+ var nom = document.f1.nom.value;
+ var prenom = document.f1.prenom.value;
+ var ville = document.f1.ville.value;
+ var formation = document.f2.fl2.formation.value;
+ var experience = document.f2.fl3.experience.value;
+ var tele = document.f1.tele.value;
+ var email = document.f1.email.value;
+ var date = document.f1.naissance.value;
+ var modele = /^[A-Za-z]*\s(1)[A-Za-z]*$/;
+ var modele1 = /^[A-Za-z]$/;
+ var modele2 = /^[0-9]{8}$/;
+
+  if ((nom.length == 0) || (prenom.length == 0) || (ville.length == 0) || (formation.length == 0) || (experience.length == 0) || (tele.length == 0) || (email.length == 0) || (date.length == 0))
+ {
+   alert("compléter tout les champs !!")
+   return false;
+ }
+
+ if ((!modele.test(nom)) || (!modele.test(prenom)) || (!modele.test(ville)) || (!modele1.test(nom)) || (!modele1.test(prenom)) || (!modele1.test(ville)))
+ {
+   alert ("il y a une erreur de nom ou prenom ou ville!!")
+   return false;
+ }
+ if (!modele2.test(tele)){
+   alert ("il y a une erreur de telephone!!")
+   return false;
+ }
+}
+ </script>
+  </head>
+
+  <body bgcolor="#F5F5F5" >
+
+<header>
+  <center><h1>Créez votre CV en 2 étapes</h1></center>
+</header>
+
+<br><hr size="7" width="90%" color="black" align=center><br>
+
+   <div class="info">
+       <form name="f1" action = "traitement.php" method="post" enctype="multipart/form-data">
+       <fieldset><br>
+       <span class="imag"> <img src="icon.jpg"></span><span><h1>Informations Personnels</h1></span>
+         <br>
+         <center><table width="50%">
+         <tr><td><i>Nom*</i></td><td><i>Prénom*</i></td></tr>
+         <tr><td><input type="text" name="nom"></td><td><input type="text" name="prenom"></td></tr>
+         <tr><td><i>Ville*</i></td><td><i>Address</i></td></tr>
+         <tr><td><input type="text" name="ville"></td><td><input type="text" name="adress"></td></tr>
+         <tr><td><i>Téléphone*</i></td><td><i>Email*</i></td></tr>
+         <tr><td><input type="tel" name="tele"></td><td><input type="email" name="email"></td></tr>
+         <tr><td><i>Date de naissance*</i></td><td><i>URL\linkedIn</i></td></tr>
+         <tr><td><input type="date" name="naissance"></td><td><input type="url" name="lien"></td></tr>
+         </table><br><br>
+       <i> Entrez votre image ici : </i><input type="file" name="photo">
+     </center>
+     <br>
+</fieldset>
+</form>
+</div>
+<br>
+
+<div class="cont">
+<form name="f2" action = "traitement.php" method="post" enctype="multipart/form-data">
+  <fieldset name="fl1"><br>
+    <span class="imag"> <img src="icon2.jpg"></span><span><h1>Contenu Professionnel</h1></span>
+  <br>
+
+  <fieldset><legend><h2>Synthèse Professionnelle</h2></legend>
+  <table><tr><td valign="top"><i>Description</i></td><td><textarea name="profil" rows="15" cols="95">Ce champ n'est pas obligatoire</textarea></td></tr></table>
+  </fieldset>
+
+  <br>
+  <fieldset name="fl2"><legend><h2>Parcours Éducatif</h2></legend>
+    <table><tr><td valign="top"><i>Description*</i></td><td><textarea name="formation" rows="15" cols="95">Ce champ est obligatoire</textarea></td></tr></table>
+  <br><center><strong> NB:Il faut écrire l'établissement, la date de debut et la date de la fin de chaque formation avec la description.</strong> </center>
+ </fieldset>
+
+
+ <br>
+ <fieldset name="fl3"><legend><h2>Expériences Professionnelles</h2></legend>
+   <table><tr><td valign="top"><i>Description*</i></td><td><textarea name="experience" rows="15" cols="95">Ce champ est obligatoire</textarea></td></tr></table>
+ <br><center><strong> NB:Il faut écrire votre poste, l'empolyeur et la date de debut et la date de la fin de chaque expérience avec la description.</strong> </center>
+</fieldset>
+
+<br>
+<fieldset name="fl4"><legend><h2>Compétences et Certificats</h2></legend>
+  <table><tr><td valign="top"><i>Compétences</i></td><td><textarea name="compétences" rows="8" cols="75">Ce champ n'est pas obligatoire</textarea></td></tr></table>
+  <br>
+  <table><tr><td valign="top"><i>Les certificats</i></td><td><textarea name="certificats" rows="8" cols="75">Ce champ n'est pas obligatoire</textarea></td></tr></table>
+  <br><center><strong> NB:Il faut écrire les niveaux.</strong> </center>
+</fieldset>
+
+
+<br>
+<fieldset name="fl5"><legend><h2>Centre d'intérêt et Expériences de bénévolat</h2></legend>
+<table><tr><td valign="top"><i>Centre d'intérêt</i></td><td><textarea name="intérêt" rows="8" cols="75">Ce champ n'est pas obligatoire</textarea></td></tr></table>
+<br>
+<table><tr><td valign="top"><i>Les expériences</i></td><td><textarea name="experience1" rows="8" cols="75">Ce champ n'est pas obligatoire</textarea></td></tr></table>
+</fieldset>
+
+<footer><br><br><center> <input type="submit" value="Annuler" name="annule">  &nbsp; <input type="submit" value="Valider" name="valid" onclick="validation();"></center><br><br>
+<i>Pour plus d'informations <a href="information.html">clique ici</a>
+</footer>
+
+</fieldset>
+</form>
+</div>
+
+  </body>
+</html>
